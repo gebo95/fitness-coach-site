@@ -9,7 +9,7 @@ export default function Testimonials() {
       result: "Lost 30 lbs",
       quote:
         "Working with Coach Mike completely changed my relationship with fitness.",
-      link: "https://instagram.com", // replace with real review link
+      link: "https://instagram.com",
       platform: "Instagram",
     },
     {
@@ -17,14 +17,14 @@ export default function Testimonials() {
       result: "Built muscle and lost 20 lbs",
       quote:
         "The accountability and personalized coaching made all the difference.",
-      link: "https://google.com", // replace with Google review link
+      link: "https://google.com",
       platform: "Google",
     },
     {
       name: "Emily T.",
       result: "Improved strength and confidence",
       quote: "I never thought I'd enjoy training this much.",
-      link: "https://trustpilot.com", // optional
+      link: "https://trustpilot.com",
       platform: "Trustpilot",
     },
   ];
@@ -58,56 +58,53 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Cards */}
-        <a
-          href={testimonials.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
+        {/* GRID WRAPPER */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid md:grid-cols-3 gap-8"
         >
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.name}
+          {testimonials.map((testimonial, index) => (
+            <a
+              key={index}
+              href={testimonial.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block h-full"
+            >
+              <motion.div
+                variants={item}
                 className="
-                bg-[#161616]
-  border border-white/10
-  rounded-3xl
-  p-10
-  transition-all duration-300
-  hover:-translate-y-2
-  hover:shadow-[0_0_30px_rgba(0,230,118,0.08)]
-  cursor-pointer
-                hover:border-[#00e676]
-              "
+                  h-full
+                  bg-[#161616]
+                  border border-white/10
+                  rounded-3xl
+                  p-10
+                  flex flex-col justify-between
+                  transition-all duration-300
+                  hover:border-[#00e676]
+                  hover:-translate-y-2
+                  hover:shadow-[0_0_30px_rgba(0,230,118,0.08)]
+                  cursor-pointer
+                "
               >
-                {/* Stars */}
-                <div className="text-[#00e676] text-xl mb-6">★★★★★</div>
+                <p className="text-gray-300 italic">"{testimonial.quote}"</p>
 
-                {/* Quote */}
-                <p className="text-gray-300 leading-relaxed mb-8">
-                  "{testimonial.quote}"
-                </p>
+                <div className="mt-6">
+                  <p className="font-semibold text-white">{testimonial.name}</p>
 
-                {/* Client */}
-                <div>
-                  <h3 className="font-bold text-xl">{testimonial.name}</h3>
+                  <p className="text-sm text-gray-400">{testimonial.result}</p>
 
-                  <p className="text-gray-500 mt-1">{testimonial.result}</p>
+                  <p className="text-sm text-[#00e676] mt-2">
+                    View on {testimonial.platform} →
+                  </p>
                 </div>
-                <div className="mt-6 text-sm text-[#00e676]">
-                  View on {testimonial.platform} →
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </a>
+              </motion.div>
+            </a>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
