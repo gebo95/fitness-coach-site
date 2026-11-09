@@ -24,7 +24,7 @@ export default function Testimonials() {
           initial={reduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2"
+          className="mx-auto grid gap-8 md:grid-cols-3"
         >
           {clientResults.map((client) => (
             <motion.a
@@ -41,6 +41,18 @@ export default function Testimonials() {
               </div>
             </motion.a>
           ))}
+          <motion.article
+            variants={reduceMotion ? undefined : fadeUp}
+            className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-surface p-8 sm:p-10"
+          >
+            <p className="text-xl font-medium italic text-neutral-300">
+              &ldquo;Having a plan I could stick to helped me feel more confident in the gym.&rdquo;
+            </p>
+            <div className="mt-6">
+              <h3 className="font-semibold text-white">Sample client story</h3>
+              <p className="mt-2 text-sm text-accent">Example testimonial</p>
+            </div>
+          </motion.article>
         </motion.div>
       </div>
     </section>
