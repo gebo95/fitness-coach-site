@@ -2,9 +2,9 @@ export default function Process() {
   const steps = [
     {
       number: "01",
-      title: "Apply",
+      title: "Choose Your Program",
       description:
-        "Tell us about your goals, lifestyle, and where you want to be.",
+        "Choose Kickstart for a 12-week foundation or Blueprint for six months of coaching.",
     },
     {
       number: "02",
@@ -26,7 +26,7 @@ export default function Process() {
   ];
 
   return (
-    <section className="bg-[#111111] py-32">
+    <section className="bg-surface py-32">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="mb-20 text-center">
@@ -34,7 +34,7 @@ export default function Process() {
             How It Works
           </h2>
 
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-neutral-400 mt-4 max-w-2xl mx-auto">
             A simple process designed to help you get results and stay
             consistent.
           </p>
@@ -47,13 +47,13 @@ export default function Process() {
               key={step.number}
               className="
                 relative
-                bg-[#161616]
+                bg-surface
                 border border-white/10
                 rounded-3xl
                 p-10
                 overflow-hidden
                 transition duration-300
-                hover:border-[#00e676]
+                hover:border-accent
                 hover:-translate-y-2
               "
             >
@@ -64,7 +64,7 @@ export default function Process() {
 
               <h3 className="text-3xl font-bold mb-4">{step.title}</h3>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-neutral-400 leading-relaxed">
                 {step.description}
               </p>
             </div>

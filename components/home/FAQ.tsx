@@ -17,17 +17,17 @@ export default function FAQ() {
     {
       question: "How fast will I see results?",
       answer:
-        "Most clients start seeing visible changes within 4–6 weeks when following the plan consistently.",
+        "Progress depends on your starting point and consistency. We track changes in strength, movement, and habits alongside any body composition goals.",
     },
     {
       question: "What makes your coaching different?",
       answer:
-        "We focus on sustainable results through accountability, education, and habit-building — not crash diets or extreme programs.",
+        "We help you build a training routine and nutrition habits you can keep through travel, social events, and busy weeks.",
     },
     {
-      question: "How do I get started?",
+      question: "Which coaching program is right for me?",
       answer:
-        "Simply click 'Apply Now' and fill out the application form. We’ll review your goals and get in touch.",
+        "Kickstart is a 12-week option for building a routine and getting comfortable in the gym. Blueprint gives you six months to build your physique and practice maintaining your results independently.",
     },
   ];
 
@@ -38,13 +38,13 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-32 bg-[#0d0d0d]">
+    <section id="faq" className="py-32 bg-black">
       <div className="max-w-4xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold uppercase">FAQ</h2>
 
-          <p className="mt-4 text-gray-400">
+          <p className="mt-4 text-neutral-400">
             Everything you need to know before starting your transformation.
           </p>
         </div>
@@ -54,21 +54,22 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-white/10 rounded-2xl bg-[#161616]"
+              className="border border-white/10 rounded-2xl bg-surface"
             >
               <button
+                aria-expanded={openIndex === index}
                 onClick={() => toggle(index)}
                 className="w-full text-left p-6 flex justify-between items-center"
               >
                 <span className="font-semibold text-white">{faq.question}</span>
 
-                <span className="text-[#00e676] text-xl">
+                <span className="text-accent text-xl">
                   {openIndex === index ? "−" : "+"}
                 </span>
               </button>
 
               {openIndex === index && (
-                <div className="px-6 pb-6 text-gray-400 leading-relaxed">
+                <div className="px-6 pb-6 text-neutral-400 leading-relaxed">
                   {faq.answer}
                 </div>
               )}

@@ -5,9 +5,9 @@ import Button from "@/components/ui/Button";
 
 export default function Hero() {
   return (
-    <section className="relative h-[calc(100vh-4rem)] mt-16 bg-cover bg-center flex items-center justify-center text-center px-6 pt-20 overflow-hidden">
+    <section className="relative mt-20 flex min-h-[calc(100svh-5rem)] items-center justify-center overflow-hidden px-6 py-20 text-center">
       {/* background image */}
-      <div className="absolute inset-0 bg-[url('/images/hero.jpeg')] bg-cover bg-center opacity-70" />
+      <div className="absolute inset-0 bg-[url('/images/hero.jpeg')] bg-cover bg-center opacity-70 grayscale" />
 
       {/* gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
@@ -20,17 +20,17 @@ export default function Hero() {
         className="relative z-10 max-w-3xl"
       >
         <div className="relative z-10 max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight leading-tight">
-            Build A Body You’re Proud Of
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+            Build a body you’re proud of
           </h1>
 
-          <p className="mt-6 text-gray-300 text-lg md:text-xl">
-            Personalized coaching to help you lose fat, build muscle, and stay
-            consistent for life.
+          <p className="mt-6 text-neutral-300 text-lg md:text-xl">
+            Online coaching for men ready to lose fat, build muscle, and get
+            back into a routine they can keep.
           </p>
 
           <div className="mt-10">
-            <Button href="#programs">Start Your Transformation</Button>
+            <Button href="/coaching">Explore Coaching Programs</Button>
           </div>
         </div>
       </motion.div>

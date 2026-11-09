@@ -7,11 +7,10 @@ import Testimonials from "@/components/home/Testimonials";
 import AboutCoach from "@/components/home/AboutCoach";
 import CTA from "@/components/home/CTA";
 import FAQ from "@/components/home/FAQ";
-import ContactForm from "@/components/home/ContactForm";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Hero />
       <Stats />
       <Programs />
@@ -19,9 +18,8 @@ export default function Home() {
       <Transformations />
       <Testimonials />
       <AboutCoach />
-      {/* <ContactForm /> */}
       <FAQ />
       <CTA />
-    </>
+    </main>
   );
 }

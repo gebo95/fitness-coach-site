@@ -19,9 +19,9 @@ export default function Button({
     "inline-flex items-center justify-center rounded-full font-semibold px-6 py-3 transition duration-300";
 
   const styles = {
-    primary: "bg-[#00e676] text-black hover:scale-105",
+    primary: "bg-accent text-black hover:scale-105",
     secondary:
-      "border border-white/20 text-white hover:border-[#00e676] hover:text-[#00e676]",
+      "border border-white/20 text-white hover:border-accent hover:text-accent",
     ghost: "text-white/70 hover:text-white underline underline-offset-4 px-0",
   };
 

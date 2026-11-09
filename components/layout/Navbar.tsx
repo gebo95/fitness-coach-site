@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 
@@ -34,39 +35,42 @@ export default function Navbar() {
   `}
         >
           {/* Logo */}
-          <div
+          <Link
+            href="/"
             className={`
     text-white font-bold tracking-widest transition-all duration-300
     ${scrolled ? "text-base" : "text-lg"}
   `}
           >
             Coach
-          </div>
+          </Link>
 
           {/* Desktop Links */}
-          <nav className="hidden md:flex items-center gap-8 text-gray-300">
-            <a className="hover:text-white transition" href="#programs">
+          <nav className="hidden md:flex items-center gap-8 text-neutral-300">
+            <Link className="hover:text-white transition" href="/coaching">
               Programs
-            </a>
-            <a className="hover:text-white transition" href="#transformations">
+            </Link>
+            <Link className="hover:text-white transition" href="/#transformations">
               Results
-            </a>
-            <a className="hover:text-white transition" href="#about">
+            </Link>
+            <Link className="hover:text-white transition" href="/#about">
               About
-            </a>
-            <a className="hover:text-white transition" href="#faq">
+            </Link>
+            <Link className="hover:text-white transition" href="/#faq">
               FAQ
-            </a>
+            </Link>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button>Apply Now</Button>
+            <Button href="/coaching">Explore Coaching</Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white text-2xl"
+            aria-label="Toggle navigation"
+            aria-expanded={open}
             onClick={() => setOpen(!open)}
           >
             ☰
@@ -75,22 +79,24 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden px-6 pb-6 space-y-4 text-gray-300">
-            <a className="block" href="#programs">
+          <div className="md:hidden px-6 pb-6 space-y-4 text-neutral-300" onClick={(event) => {
+            if ((event.target as HTMLElement).closest("a")) setOpen(false);
+          }}>
+            <Link className="block" href="/coaching">
               Programs
-            </a>
-            <a className="block" href="#transformations">
+            </Link>
+            <Link className="block" href="/#transformations">
               Results
-            </a>
-            <a className="block" href="#about">
+            </Link>
+            <Link className="block" href="/#about">
               About
-            </a>
-            <a className="block" href="#faq">
+            </Link>
+            <Link className="block" href="/#faq">
               FAQ
-            </a>
+            </Link>
 
             <div className="pt-4">
-              <Button className="w-full">Apply Now</Button>
+              <Button href="/coaching" className="w-full">Explore Coaching</Button>
             </div>
           </div>
         )}

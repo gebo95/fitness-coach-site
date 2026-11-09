@@ -1,109 +1,58 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { clientResults } from "@/lib/client-results";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      name: "Sarah M.",
-      result: "Lost 30 lbs",
-      quote:
-        "Working with Coach Mike completely changed my relationship with fitness.",
-      link: "https://instagram.com",
-      platform: "Instagram",
-    },
-    {
-      name: "David R.",
-      result: "Built muscle and lost 20 lbs",
-      quote:
-        "The accountability and personalized coaching made all the difference.",
-      link: "https://google.com",
-      platform: "Google",
-    },
-    {
-      name: "Emily T.",
-      result: "Improved strength and confidence",
-      quote: "I never thought I'd enjoy training this much.",
-      link: "https://trustpilot.com",
-      platform: "Trustpilot",
-    },
-  ];
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 25 },
-    show: { opacity: 1, y: 0 },
-  };
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section className="bg-[#111111] py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold uppercase">
+    <section id="client-stories" aria-labelledby="stories-heading" className="bg-surface py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-20 text-center">
+          <h2 id="stories-heading" className="text-5xl font-bold uppercase md:text-6xl">
             Client Success Stories
           </h2>
-
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-            Real people. Real transformations. Real results.
+          <p className="mx-auto mt-4 max-w-2xl text-neutral-400">
+            See the progress clients made and explore their before-and-after photos.
           </p>
         </div>
 
-        {/* GRID WRAPPER */}
         <motion.div
-          variants={container}
-          initial="hidden"
+          variants={staggerContainer}
+          initial={reduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid md:grid-cols-3 gap-8"
+          className="mx-auto grid gap-8 md:grid-cols-3"
         >
-          {testimonials.map((testimonial, index) => (
-            <a
-              key={index}
-              href={testimonial.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block h-full"
+          {clientResults.map((client) => (
+            <motion.a
+              key={client.id}
+              href={`#result-${client.id}`}
+              aria-label={`View ${client.name}’s before-and-after results`}
+              variants={reduceMotion ? undefined : fadeUp}
+              className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-surface p-8 transition duration-300 hover:border-accent hover:shadow-[0_0_30px_rgba(212,175,55,0.08)] sm:p-10 motion-safe:hover:-translate-y-2"
             >
-              <motion.div
-                variants={item}
-                className="
-                  h-full
-                  bg-[#161616]
-                  border border-white/10
-                  rounded-3xl
-                  p-10
-                  flex flex-col justify-between
-                  transition-all duration-300
-                  hover:border-[#00e676]
-                  hover:-translate-y-2
-                  hover:shadow-[0_0_30px_rgba(0,230,118,0.08)]
-                  cursor-pointer
-                "
-              >
-                <p className="text-gray-300 italic">"{testimonial.quote}"</p>
-
-                <div className="mt-6">
-                  <p className="font-semibold text-white">{testimonial.name}</p>
-
-                  <p className="text-sm text-gray-400">{testimonial.result}</p>
-
-                  <p className="text-sm text-[#00e676] mt-2">
-                    View on {testimonial.platform} →
-                  </p>
-                </div>
-              </motion.div>
-            </a>
+              <p className="text-xl font-medium italic text-neutral-300">{client.result}</p>
+              <div className="mt-6">
+                <h3 className="font-semibold text-white">{client.name}</h3>
+                <p className="mt-2 text-sm text-accent">View before &amp; after →</p>
+              </div>
+            </motion.a>
           ))}
+          <motion.article
+            variants={reduceMotion ? undefined : fadeUp}
+            className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-surface p-8 sm:p-10"
+          >
+            <p className="text-xl font-medium italic text-neutral-300">
+              &ldquo;Having a plan I could stick to helped me feel more confident in the gym.&rdquo;
+            </p>
+            <div className="mt-6">
+              <h3 className="font-semibold text-white">Sample client story</h3>
+              <p className="mt-2 text-sm text-accent">Example testimonial</p>
+            </div>
+          </motion.article>
         </motion.div>
       </div>
     </section>
