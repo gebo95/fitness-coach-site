@@ -1,25 +1,32 @@
 @import "tailwindcss";
 
-:root {
-  --bg: #0d0d0d;
-  --card: #161616;
-  --text: #ffffff;
-  --muted: #a1a1aa;
-  --accent: #f13813;
-  /* --accent: #00e676; e04d30*/
+@theme {
+  --color-accent: #d4af37;
+  --color-surface: #111111;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: Inter, system-ui, sans-serif;
+  background: #000000;
+  color: #ffffff;
 }
 
 ::selection {
-  background: var(--accent);
-  color: black;
+  background: var(--color-accent);
+  color: #000000;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

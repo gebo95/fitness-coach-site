@@ -19,7 +19,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className="bg-[#111111] border-y border-white/10 py-12">
+    <section className="bg-surface border-y border-white/10 py-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {stats.map((stat) => (
@@ -27,11 +27,11 @@ export default function Stats() {
               key={stat.label}
               className="text-center transition duration-300 hover:-translate-y-1"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-[#00e676]">
+              <h2 className="text-4xl md:text-5xl font-bold text-accent">
                 {stat.number}
               </h2>
 
-              <p className="mt-2 text-gray-400 uppercase tracking-wider text-sm">
+              <p className="mt-2 text-neutral-400 uppercase tracking-wider text-sm">
                 {stat.label}
               </p>
             </div>

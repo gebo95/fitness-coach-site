@@ -1,117 +1,138 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import { fadeUp, staggerContainer } from "@/lib/motion";
+import { coachingInquiryUrl } from "@/lib/coaching";
+
+const kickstartOutcomes = [
+  "Lose fat and build noticeable muscle",
+  "Learn proper lifting technique and improve mobility",
+  "Build sustainable nutrition habits",
+  "Feel more confident walking into the gym",
+];
+
+const kickstartIncludes = [
+  "Initial strategy session",
+  "Personalized workout program",
+  "Nutrition roadmap",
+  "Weekly accountability check-ins",
+  "Exercise video library",
+  "Monthly progress assessments",
+  "Unlimited messaging within agreed coaching boundaries",
+];
+
+const blueprintPhases = [
+  {
+    months: "Months 1–2",
+    title: "Build the Foundation",
+    description:
+      "Assess how you move, improve mobility and lifting technique, and establish nutrition and training habits.",
+  },
+  {
+    months: "Months 3–4",
+    title: "Build the Physique",
+    description:
+      "Use progressive overload to build muscle, work toward fat loss, improve conditioning, and build confidence.",
+  },
+  {
+    months: "Months 5–6",
+    title: "Build the Lifestyle",
+    description:
+      "Plan for travel and social events, develop a sustainable approach to nutrition, and learn to manage your training independently.",
+  },
+];
 
 export default function Programs() {
-  const programs = [
-    {
-      title: "Foundation Coaching",
-      description:
-        "Structure and guidance for people who just need a plan and a system to follow",
-      features: [
-        "Custom Workouts updated monthly",
-        "Nutrition Guidance",
-        "Weekly Check-Ins (form)",
-        "App access + 1-way coach messaging for accountabitily and support.",
-      ],
-    },
-    {
-      title: "Accountabilty Coaching",
-      description:
-        "This is where results happen-real coaching, real accountability, real adjustments",
-      features: [
-        "Foundaton benefits + Bi-weekly plan adjustments",
-        "Advanced nutrition trackng and habits",
-        "Weekly check-in (form + video review)",
-        "Direct 2-way coach messaging for added motivation and guidance",
-      ],
-    },
-    {
-      title: "Elite Coaching",
-      description:
-        "High-level coaching for people who want to ve pushed, guided and held to a higher standard",
-      features: [
-        "Accountability benefits + personalized calls and deeper strategy",
-        "Advanced nutrition coaching + frequent program adjustments",
-        "Priority 2-way coach messaging +  elite Accountability with faster responses and consistend habit reviews",
-      ],
-    },
-  ];
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
-    <section id="programs" className="py-32 bg-[#0d0d0d]">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold uppercase">
-            Coaching Programs
-          </h2>
-
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-            Personalized coaching designed to help you build muscle, lose fat,
-            and create lasting habits.
+    <section id="programs" aria-labelledby="programs-heading" className="bg-black py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6">
+        <header className="mx-auto mb-12 max-w-2xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+            Online coaching with Alkin
           </p>
+          <h2 id="programs-heading" className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
+            Functional Physique Coaching
+          </h2>
+          <p className="mt-5 leading-relaxed text-neutral-300">
+            Personalized coaching for men who want to build strength, get back
+            into a routine, and keep their results.
+          </p>
+        </header>
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          <article className="rounded-2xl border border-white/15 bg-surface p-6 sm:p-9">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              3 months · 12 weeks
+            </p>
+            <h3 className="mt-4 text-3xl font-semibold tracking-tight">
+              The Functional Physique Kickstart™
+            </h3>
+            <p className="mt-4 text-lg text-white">
+              Build the foundation for the strongest version of yourself in 90 days.
+            </p>
+            <p className="mt-3 leading-relaxed text-neutral-300">
+              For men who’ve gained weight, lost confidence, or haven’t trained
+              consistently in years.
+            </p>
+            <p className="mt-6 text-sm text-neutral-300">
+              Starting at <strong className="text-2xl text-white">$1,800 CAD</strong>
+            </p>
+
+            <div className="mt-7 border-t border-white/15 pt-6">
+              <h4 className="font-semibold">What you’ll work toward</h4>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-neutral-300 marker:text-accent">
+                {kickstartOutcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
+              </ul>
+            </div>
+            <div className="mt-6">
+              <h4 className="font-semibold">What’s included</h4>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-neutral-300 marker:text-accent">
+                {kickstartIncludes.map((feature) => <li key={feature}>{feature}</li>)}
+              </ul>
+            </div>
+            <Button href={coachingInquiryUrl} className="mt-7">
+              Inquire About Kickstart
+            </Button>
+          </article>
+
+          <article className="rounded-2xl border border-accent bg-surface p-6 sm:p-9">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              6 months · Flagship program
+            </p>
+            <h3 className="mt-4 text-3xl font-semibold tracking-tight">
+              The Functional Physique Blueprint™
+            </h3>
+            <p className="mt-4 text-lg text-white">
+              Rebuild your body so you never have to start over again.
+            </p>
+            <p className="mt-3 leading-relaxed text-neutral-300">
+              Build a noticeably stronger physique, move with more confidence,
+              and learn how to maintain your results on your own.
+            </p>
+            <p className="mt-6 text-sm text-neutral-300">
+              Starting at <strong className="text-2xl text-white">$3,600 CAD</strong>
+            </p>
+
+            <div className="mt-7 border-t border-white/15 pt-6">
+              <h4 className="font-semibold">Your six-month roadmap</h4>
+              <ol className="mt-4 space-y-5">
+                {blueprintPhases.map((phase) => (
+                  <li key={phase.months} className="border-l border-accent/50 pl-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+                      {phase.months}
+                    </p>
+                    <h5 className="mt-1 font-semibold">{phase.title}</h5>
+                    <p className="mt-1 leading-relaxed text-neutral-300">{phase.description}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <Button href={coachingInquiryUrl} className="mt-7">
+              Inquire About Blueprint
+            </Button>
+          </article>
         </div>
 
-        {/* Cards */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {programs.map((program) => (
-            <motion.div
-              key={program.title}
-              variants={fadeUp}
-              className="
-    bg-[#161616]
-    border border-white/10
-    rounded-3xl
-    p-10
-    transition-all duration-300
-    hover:border-[#00e676]
-    hover:-translate-y-2
-  "
-            >
-              <h3 className="text-3xl font-bold mb-4">{program.title}</h3>
-
-              <p className="text-gray-400 mb-8">{program.description}</p>
-
-              <div className="space-y-4 mb-10">
-                {program.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-3">
-                    <span className="text-[#00e676]">✓</span>
-
-                    <span className="text-gray-300">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <Button href="#programs" variant="secondary">
-                Learn More
-              </Button>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="mt-8 text-center">
+          <Button href="#faq" variant="secondary">Coaching FAQ</Button>
+        </div>
       </div>
     </section>
   );

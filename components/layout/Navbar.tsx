@@ -44,7 +44,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Links */}
-          <nav className="hidden md:flex items-center gap-8 text-gray-300">
+          <nav className="hidden md:flex items-center gap-8 text-neutral-300">
             <a className="hover:text-white transition" href="#programs">
               Programs
             </a>
@@ -61,12 +61,14 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button>Apply Now</Button>
+            <Button href="#programs">Explore Coaching</Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white text-2xl"
+            aria-label="Toggle navigation"
+            aria-expanded={open}
             onClick={() => setOpen(!open)}
           >
             ☰
@@ -75,7 +77,9 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden px-6 pb-6 space-y-4 text-gray-300">
+          <div className="md:hidden px-6 pb-6 space-y-4 text-neutral-300" onClick={(event) => {
+            if ((event.target as HTMLElement).closest("a")) setOpen(false);
+          }}>
             <a className="block" href="#programs">
               Programs
             </a>
@@ -90,7 +94,7 @@ export default function Navbar() {
             </a>
 
             <div className="pt-4">
-              <Button className="w-full">Apply Now</Button>
+              <Button href="#programs" className="w-full">Explore Coaching</Button>
             </div>
           </div>
         )}

@@ -1,17 +1,13 @@
 import "./globals.css";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Inter } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
-const bebas = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 export const metadata = {
-  title: "Fitness Coaching",
-  description: "Premium online coaching",
+  title: "Functional Physique Coaching | Coach Alkin",
+  description: "Online fitness coaching for men. Build strength and lasting habits with the 12-week Kickstart or six-month Blueprint.",
 };
 
 export default function RootLayout({

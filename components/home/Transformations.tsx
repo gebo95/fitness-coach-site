@@ -18,7 +18,7 @@ export default function Transformations() {
   ];
 
   return (
-    <section id="transformations" className="py-32 bg-[#0d0d0d]">
+    <section id="transformations" className="py-32 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-20">
@@ -26,7 +26,7 @@ export default function Transformations() {
             Real Results
           </h2>
 
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-neutral-400 max-w-2xl mx-auto">
             Helping clients build confidence, lose fat, and transform their
             lives.
           </p>
@@ -38,11 +38,11 @@ export default function Transformations() {
             <div
               key={client.name}
               className="
-                bg-[#161616]
+                bg-surface
                 border border-white/10
                 rounded-3xl
                 overflow-hidden
-                hover:border-[#00e676]
+                hover:border-accent
                 transition-all duration-300
               "
             >
@@ -71,11 +71,11 @@ export default function Transformations() {
               <div className="p-8">
                 <h3 className="text-2xl font-bold">{client.name}</h3>
 
-                <p className="mt-4 text-gray-400">{client.result}</p>
+                <p className="mt-4 text-neutral-400">{client.result}</p>
 
                 <div className="mt-8">
                   <Button
-                    href="https://calendly.com/your-link"
+                    href="#programs"
                     variant="secondary"
                   >
                     Start Your Journey

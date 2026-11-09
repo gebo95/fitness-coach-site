@@ -45,7 +45,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="bg-[#111111] py-32">
+    <section className="bg-surface py-32">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-20">
@@ -53,7 +53,7 @@ export default function Testimonials() {
             Client Success Stories
           </h2>
 
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-neutral-400 max-w-2xl mx-auto">
             Real people. Real transformations. Real results.
           </p>
         </div>
@@ -78,26 +78,26 @@ export default function Testimonials() {
                 variants={item}
                 className="
                   h-full
-                  bg-[#161616]
+                  bg-surface
                   border border-white/10
                   rounded-3xl
                   p-10
                   flex flex-col justify-between
                   transition-all duration-300
-                  hover:border-[#00e676]
+                  hover:border-accent
                   hover:-translate-y-2
                   hover:shadow-[0_0_30px_rgba(0,230,118,0.08)]
                   cursor-pointer
                 "
               >
-                <p className="text-gray-300 italic">"{testimonial.quote}"</p>
+                <p className="text-neutral-300 italic">&ldquo;{testimonial.quote}&rdquo;</p>
 
                 <div className="mt-6">
                   <p className="font-semibold text-white">{testimonial.name}</p>
 
-                  <p className="text-sm text-gray-400">{testimonial.result}</p>
+                  <p className="text-sm text-neutral-400">{testimonial.result}</p>
 
-                  <p className="text-sm text-[#00e676] mt-2">
+                  <p className="text-sm text-accent mt-2">
                     View on {testimonial.platform} →
                   </p>
                 </div>
