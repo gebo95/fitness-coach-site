@@ -30,7 +30,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-10">
-            <Button href="#programs">Explore Coaching Programs</Button>
+            <Button href="/coaching">Explore Coaching Programs</Button>
           </div>
         </div>
       </motion.div>

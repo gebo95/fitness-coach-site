@@ -27,7 +27,7 @@ export default function CTA() {
 
         {/* button */}
         <div className="mt-10">
-          <Button href={coachingInquiryUrl}>Inquire About Coaching</Button>
+          <Button href={coachingInquiryUrl}>Book a 30-Minute Coaching Call</Button>
         </div>
 
       </div>

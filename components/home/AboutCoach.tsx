@@ -45,7 +45,7 @@ export default function AboutCoach() {
             </div>
 
             <div className="mt-10">
-              <Button href="#programs">
+              <Button href="/coaching">
                 Explore Coaching Programs
               </Button>
             </div>

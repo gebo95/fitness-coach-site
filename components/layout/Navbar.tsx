@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 
@@ -34,34 +35,35 @@ export default function Navbar() {
   `}
         >
           {/* Logo */}
-          <div
+          <Link
+            href="/"
             className={`
     text-white font-bold tracking-widest transition-all duration-300
     ${scrolled ? "text-base" : "text-lg"}
   `}
           >
             Coach
-          </div>
+          </Link>
 
           {/* Desktop Links */}
           <nav className="hidden md:flex items-center gap-8 text-neutral-300">
-            <a className="hover:text-white transition" href="#programs">
+            <Link className="hover:text-white transition" href="/coaching">
               Programs
-            </a>
-            <a className="hover:text-white transition" href="#transformations">
+            </Link>
+            <Link className="hover:text-white transition" href="/#transformations">
               Results
-            </a>
-            <a className="hover:text-white transition" href="#about">
+            </Link>
+            <Link className="hover:text-white transition" href="/#about">
               About
-            </a>
-            <a className="hover:text-white transition" href="#faq">
+            </Link>
+            <Link className="hover:text-white transition" href="/#faq">
               FAQ
-            </a>
+            </Link>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button href="#programs">Explore Coaching</Button>
+            <Button href="/coaching">Explore Coaching</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -80,21 +82,21 @@ export default function Navbar() {
           <div className="md:hidden px-6 pb-6 space-y-4 text-neutral-300" onClick={(event) => {
             if ((event.target as HTMLElement).closest("a")) setOpen(false);
           }}>
-            <a className="block" href="#programs">
+            <Link className="block" href="/coaching">
               Programs
-            </a>
-            <a className="block" href="#transformations">
+            </Link>
+            <Link className="block" href="/#transformations">
               Results
-            </a>
-            <a className="block" href="#about">
+            </Link>
+            <Link className="block" href="/#about">
               About
-            </a>
-            <a className="block" href="#faq">
+            </Link>
+            <Link className="block" href="/#faq">
               FAQ
-            </a>
+            </Link>
 
             <div className="pt-4">
-              <Button href="#programs" className="w-full">Explore Coaching</Button>
+              <Button href="/coaching" className="w-full">Explore Coaching</Button>
             </div>
           </div>
         )}

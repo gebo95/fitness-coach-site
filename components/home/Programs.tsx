@@ -39,7 +39,8 @@ const blueprintPhases = [
   },
 ];
 
-export default function Programs() {
+export default function Programs({ standalone = false }: { standalone?: boolean }) {
+  const Heading = standalone ? "h1" : "h2";
   return (
     <section id="programs" aria-labelledby="programs-heading" className="bg-black py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6">
@@ -47,9 +48,9 @@ export default function Programs() {
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
             Online coaching with Alkin
           </p>
-          <h2 id="programs-heading" className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
+          <Heading id="programs-heading" className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
             Functional Physique Coaching
-          </h2>
+          </Heading>
           <p className="mt-5 leading-relaxed text-neutral-300">
             Personalized coaching for men who want to build strength, get back
             into a routine, and keep their results.
@@ -88,7 +89,7 @@ export default function Programs() {
               </ul>
             </div>
             <Button href={coachingInquiryUrl} className="mt-7">
-              Inquire About Kickstart
+              Book a Kickstart Call
             </Button>
           </article>
 
@@ -125,13 +126,13 @@ export default function Programs() {
               </ol>
             </div>
             <Button href={coachingInquiryUrl} className="mt-7">
-              Inquire About Blueprint
+              Book a Blueprint Call
             </Button>
           </article>
         </div>
 
         <div className="mt-8 text-center">
-          <Button href="#faq" variant="secondary">Coaching FAQ</Button>
+          <Button href="/#faq" variant="secondary">Coaching FAQ</Button>
         </div>
       </div>
     </section>

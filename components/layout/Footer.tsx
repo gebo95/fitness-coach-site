@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
@@ -23,27 +24,27 @@ export default function Footer() {
 
             <ul className="space-y-3 text-neutral-400">
               <li>
-                <a href="#programs" className="hover:text-white transition">
+                <Link href="/coaching" className="hover:text-white transition">
                   Programs
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#transformations"
+                <Link
+                  href="/#transformations"
                   className="hover:text-white transition"
                 >
                   Results
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition">
+                <Link href="/#about" className="hover:text-white transition">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition">
+                <Link href="/#faq" className="hover:text-white transition">
                   FAQ
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

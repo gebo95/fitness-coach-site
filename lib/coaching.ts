@@ -1,1 +1,1 @@
-export const coachingInquiryUrl = "https://tr.ee/U_PRjLe8Gm";
+export const coachingInquiryUrl = "https://calendly.com/ajdelancyfitness/30min";
